@@ -1,10 +1,15 @@
 import React from 'react';
 import {Label, Input} from '../ContactForm/ContactForm.styles';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'store/filterSlice';
 
-const Filter = ({ filter, onFilterChange }) => {
+const Filter = ({ filter }) => {
+
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     const filterValue = e.target.value.toLowerCase();
-    onFilterChange(filterValue);
+    dispatch(setFilter(filterValue));
   };
 
   return (
